@@ -29,7 +29,7 @@ export default function App() {
 // 1. Layout Components
 function Sidebar() {
   return (
-    <div className="w-16 bg-surface-surface-dl-light-mode flex flex-col items-center py-4">
+    <div className="w-16 bg-surface-surface-dl flex flex-col items-center py-4">
       <div className="mb-8">
         <div className="flex items-center justify-center">
           <div className="h-8 w-8 bg-gradient-to-r from-orange-500 to-pink-500 rounded-md flex items-center justify-center text-white font-bold">
@@ -45,7 +45,7 @@ function Sidebar() {
       <SidebarItem icon={<Bell size={20} />} label="Alerts" />
 
       <div className="mt-auto mb-4">
-        <div className="h-10 w-10 rounded-full bg-teal-600 flex items-center justify-center text-white">
+        <div className="h-10 w-10 rounded-full bg-brand-primary-main flex items-center justify-center text-white">
           AK
         </div>
       </div>
@@ -56,7 +56,7 @@ function Sidebar() {
 function SidebarItem({ icon, label, active }) {
   return (
     <div
-      className={`w-full flex flex-col items-center py-3 text-xs ${active ? "text-white bg-gray-800 " : "text-gray-400"}`}
+      className={`w-full flex flex-col items-center py-3 text-xs ${active ? "text-white bg-surface-surface-dl " : "text-gray-400"}`}
     >
       {icon}
       <span className="mt-1">{label}</span>
@@ -96,7 +96,7 @@ function Header() {
             <input
               type="text"
               placeholder="Search project"
-              className="w-full pl-10 pr-4 py-2 rounded-xxlarge-default border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 rounded-radius-large border bg-surface-surface  border-stroke-secondary focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
         </div>
@@ -185,7 +185,7 @@ function ScheduleSection() {
 
 function ScheduleCard({ time, project, title, description }) {
   return (
-    <div className="min-w-64 max-w-64 rounded-lg p-4 shadow-xl border border-gray-100 bg-surface-surface-dark-light-mode">
+    <div className="min-w-64 max-w-64 rounded-lg p-4 shadow-xl border border-gray-100 bg-surface-surface-dark">
       <div className="flex items-center mb-2 text-sm text-gray-500">
         <Clock size={16} className="mr-2" />
         <span>{time}</span>
@@ -221,7 +221,7 @@ function BreakCard({ duration }) {
 // 3. Flow Table Components
 function FlowTableSection() {
   return (
-    <div className="bg-surface-surface-dark-light-mode rounded-lg p-6 mb-6 shadow-xl border">
+    <div className="bg-surface-surface-dark rounded-lg p-6 mb-6 shadow-xl border">
       <FilterSortBar />
       <FlowTable />
     </div>
@@ -442,7 +442,7 @@ function AlertBadge({ count }) {
 function RightSidebar() {
   return (
     <div className="space-y-6">
-      <div className="bg-surface-surface-dark-light-mode rounded-lg p-6 shadow-xl border">
+      <div className="bg-surface-surface-dark rounded-lg p-6 shadow-xl border">
         <h2 className="text-xl font-bold mb-6">Alerts</h2>
         {/* <div className="flex  space-y-4 ">
           <AlertSummaryCard
@@ -455,19 +455,21 @@ function RightSidebar() {
         </div> */}
 
         <div className="grid grid-cols-3 gap-4 mb-6">
-          <div className="p-4 rounded-lg border-b border-orange-200 bg-orange-50">
-            <div className="text-orange-600 font-medium">
+          <div className="p-4 rounded-lg border-b-4 border-destructive-active border ">
+            <div className="text-destructive-active font-medium">
               Pre-requisite failure
             </div>
-            <div className="text-2xl font-bold text-orange-700">3</div>
+            <div className="text-2xl font-bold text-destructive-active">3</div>
           </div>
-          <div className="p-4 rounded-lg border border-red-200 bg-red-50">
-            <div className="text-red-600 font-medium">Task failure</div>
-            <div className="text-2xl font-bold text-red-700">12</div>
+          <div className="p-4 rounded-lg border-b-4 border-destructive-hover border">
+            <div className="text-destructive-hover font-medium">
+              Task failure
+            </div>
+            <div className="text-2xl font-bold text-destructive-hover">12</div>
           </div>
-          <div className="p-4 rounded-lg border border-yellow-200 bg-yellow-50">
-            <div className="text-yellow-600 font-medium">Discrepancy</div>
-            <div className="text-2xl font-bold text-yellow-700">2</div>
+          <div className="p-4 rounded-lg border-b-4 border-warning-main border">
+            <div className="text-warning-main font-medium">Discrepancy</div>
+            <div className="text-2xl font-bold text-warning-main">2</div>
           </div>
         </div>
       </div>
@@ -519,7 +521,7 @@ function IncidentHistory() {
   ];
 
   return (
-    <div className="bg-surface-surface-dark-light-mode rounded-lg p-6 shadow-xl border">
+    <div className="bg-surface-surface-dark rounded-lg p-6 shadow-xl border">
       <h2 className="text-xl font-bold mb-4">Incident History</h2>
       <div className="space-y-4">
         {incidents.map((incident, index) => (
@@ -532,7 +534,9 @@ function IncidentHistory() {
         ))}
 
         <div className="text-center mt-4">
-          <button className="text-blue-600 font-medium">See more</button>
+          <button className="text-interactive-default font-medium border w-full rounded-radius-circle py-1 border-interactive-default">
+            See more
+          </button>
         </div>
       </div>
     </div>
