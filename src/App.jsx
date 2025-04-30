@@ -19,7 +19,7 @@ import {
 
 export default function App() {
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-surface-surface-main ">
       <Sidebar />
       <MainContent />
     </div>
@@ -102,7 +102,7 @@ function Header() {
         </div>
       </div>
       <div className="text-left">
-        <h1 className="text-xl font-bold">Welcome Akash,</h1>
+        <h1 className="text-xl font-bold-ds ">Welcome Akash,</h1>
         <p className="text-gray-500">
           Here are the some of the task as per project schedule.
         </p>
@@ -191,12 +191,12 @@ function ScheduleCard({ time, project, title, description }) {
         <span>{time}</span>
         {project && (
           <>
-            <div className="mx-2 h-4 border-r border-gray-300"></div>
+            <div className="mx-2 h-4 border-r border-gray-300 "></div>
             <span className="font-medium">{project}</span>
           </>
         )}
       </div>
-      <h3 className="font-medium mb-2">{title}</h3>
+      <h3 className="font-bold-ds mb-2">{title}</h3>
       <p className="text-sm text-gray-500">{description}</p>
     </div>
   );
@@ -211,7 +211,7 @@ function BreakCard({ duration }) {
         </div>
       </div>
       <div className="mt-2 text-center">
-        <div className="font-medium">Time Break</div>
+        <div className="font-bold-ds">Time Break</div>
         <div className="text-sm text-gray-500">{duration}</div>
       </div>
     </div>
@@ -230,9 +230,9 @@ function FlowTableSection() {
 
 function FilterSortBar() {
   return (
-    <div className="flex justify-between items-center mb-6">
+    <div className="flex justify-between items-center mb-6 bg-">
       <div className="flex items-center space-x-2">
-        <h2 className="text-xl font-bold">Flow</h2>
+        <h2 className="text-xl font-bold-ds">Flow</h2>
         <div className="flex items-center space-x-2 text-sm ml-6">
           <span className="text-gray-500">Project:</span>
           <div className="flex items-center">
@@ -327,7 +327,7 @@ function FlowTable() {
     <div className="overflow-x-auto">
       <table className="w-full">
         <thead>
-          <tr className="text-left text-gray-500 border-b">
+          <tr className="text-left text-gray-500 border-b font-bold-ds">
             <th className="pb-3">Flow Name</th>
             <th className="pb-3">Project</th>
             <th className="pb-3">Start time</th>
@@ -359,11 +359,11 @@ function FlowTableRow({ name, schedule, project, startTime, status, alerts }) {
     <tr className="border-b border-gray-100">
       <td className="py-4">
         <div className="flex items-center">
-          <div className="w-6 h-6 rounded-full bg-purple-200 text-purple-700 flex items-center justify-center mr-3">
-            <Clock size={14} />
+          <div className="w-6 h-6 rounded-full  bg-brand-secondary-light flex items-center justify-center mr-3">
+            <Clock size={14} className="text-grey-500" />
           </div>
           <div>
-            <div className="font-medium">{name}</div>
+            <div className="text-brand-primary-main font-bold-ds">{name}</div>
             <div className="text-xs text-gray-500">{schedule}</div>
           </div>
         </div>
@@ -379,7 +379,7 @@ function FlowTableRow({ name, schedule, project, startTime, status, alerts }) {
       </td>
       <td className="py-4">{alerts > 0 && <AlertBadge count={alerts} />}</td>
       <td className="py-4">
-        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-teal-50 text-teal-700">
+        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-teal-50 text-brand-primary-main font-bold">
           <ChevronDown size={16} />
         </div>
       </td>
@@ -394,23 +394,23 @@ function ProgressBadge({ type, count }) {
 
   switch (type) {
     case "running":
-      icon = <Clock size={16} className="text-blue-500 mr-2" />;
-      colorClass = "text-blue-500";
+      icon = <Clock size={16} className="text-brand-secondary-main mr-2" />;
+      colorClass = "";
       label = "running";
       break;
     case "success":
-      icon = <CheckCircle size={16} className="text-green-500 mr-2" />;
-      colorClass = "text-green-500";
+      icon = <CheckCircle size={16} className="text-success-main mr-2" />;
+      colorClass = "";
       label = "Successful";
       break;
     case "failed":
-      icon = <XCircle size={16} className="text-red-500 mr-2" />;
-      colorClass = "text-red-500";
+      icon = <XCircle size={16} className="text-destructive-hover mr-2" />;
+      colorClass = "";
       label = "Failed";
       break;
     case "hold":
-      icon = <AlertCircle size={16} className="text-yellow-500 mr-2" />;
-      colorClass = "text-yellow-500";
+      icon = <AlertCircle size={16} className="text-warning-main mr-2" />;
+      colorClass = "";
       label = "On-Hold";
       break;
     default:
@@ -432,7 +432,7 @@ function ProgressBadge({ type, count }) {
 function AlertBadge({ count }) {
   return (
     <div className="flex items-center">
-      <AlertTriangle size={16} className="text-amber-500 mr-2" />
+      <AlertTriangle size={16} className="text-warning-main mr-2" />
       <span>{count}</span>
     </div>
   );
@@ -443,7 +443,7 @@ function RightSidebar() {
   return (
     <div className="space-y-6">
       <div className="bg-surface-surface-dark rounded-radius-xsmall p-6 shadow-xl border">
-        <h2 className="text-xl font-bold mb-6">Alerts</h2>
+        <h2 className="text-xl font-bold-ds mb-6">Alerts</h2>
         {/* <div className="flex  space-y-4 ">
           <AlertSummaryCard
             label="Pre-requisite failure"
@@ -459,17 +459,21 @@ function RightSidebar() {
             <div className="text-destructive-active font-medium">
               Pre-requisite failure
             </div>
-            <div className="text-2xl font-bold text-destructive-active">3</div>
+            <div className="text-2xl font-bold-ds text-destructive-active">
+              3
+            </div>
           </div>
           <div className="p-4 rounded-radius-xsmall border-b-4 border-destructive-hover border shadow-xl ">
             <div className="text-destructive-hover font-medium">
               Task failure
             </div>
-            <div className="text-2xl font-bold text-destructive-hover">12</div>
+            <div className="text-2xl font-bold-ds text-destructive-hover">
+              12
+            </div>
           </div>
           <div className="p-4 rounded-radius-xsmall border-b-4 border-warning-main border shadow-xl  ">
-            <div className="text-warning-main font-medium">Discrepancy</div>
-            <div className="text-2xl font-bold text-warning-main">2</div>
+            <div className="text-warning-main font-medium ">Discrep- ancy</div>
+            <div className="text-2xl text-warning-main font-bold-ds">2</div>
           </div>
         </div>
       </div>
@@ -522,7 +526,7 @@ function IncidentHistory() {
 
   return (
     <div className="bg-surface-surface-dark rounded-radius-xsmall p-6 shadow-xl border">
-      <h2 className="text-xl font-bold mb-4">Incident History</h2>
+      <h2 className="text-xl font-bold-ds mb-4">Incident History</h2>
       <div className="space-y-4">
         {incidents.map((incident, index) => (
           <IncidentCard
