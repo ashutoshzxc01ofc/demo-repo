@@ -455,19 +455,19 @@ function RightSidebar() {
         </div> */}
 
         <div className="grid grid-cols-3 gap-4 mb-6">
-          <div className="p-4 rounded-radius-xsmall border-b-4 border-destructive-active border ">
+          <div className="p-4 rounded-radius-xsmall border-b-4 border-destructive-active border shadow-xl ">
             <div className="text-destructive-active font-medium">
               Pre-requisite failure
             </div>
             <div className="text-2xl font-bold text-destructive-active">3</div>
           </div>
-          <div className="p-4 rounded-radius-xsmall border-b-4 border-destructive-hover border">
+          <div className="p-4 rounded-radius-xsmall border-b-4 border-destructive-hover border shadow-xl ">
             <div className="text-destructive-hover font-medium">
               Task failure
             </div>
             <div className="text-2xl font-bold text-destructive-hover">12</div>
           </div>
-          <div className="p-4 rounded-radius-xsmall border-b-4 border-warning-main border">
+          <div className="p-4 rounded-radius-xsmall border-b-4 border-warning-main border shadow-xl  ">
             <div className="text-warning-main font-medium">Discrepancy</div>
             <div className="text-2xl font-bold text-warning-main">2</div>
           </div>
