@@ -243,6 +243,7 @@
     "extra-bold": "Extra Bold",
     "black": "Black",
     "extra-black": "Extra Black",
+    "bold-ds": "bold",
           },
           fontFamily: {
                 "title": ["Mulish"],
