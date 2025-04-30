@@ -185,7 +185,7 @@ function ScheduleSection() {
 
 function ScheduleCard({ time, project, title, description }) {
   return (
-    <div className="min-w-64 max-w-64 rounded-lg p-4 shadow-xl border border-gray-100 bg-surface-surface-dark">
+    <div className="min-w-64 max-w-64 rounded-radius-xsmall p-4 shadow-xl border border-gray-100 bg-surface-surface-dark">
       <div className="flex items-center mb-2 text-sm text-gray-500">
         <Clock size={16} className="mr-2" />
         <span>{time}</span>
@@ -221,7 +221,7 @@ function BreakCard({ duration }) {
 // 3. Flow Table Components
 function FlowTableSection() {
   return (
-    <div className="bg-surface-surface-dark rounded-lg p-6 mb-6 shadow-xl border">
+    <div className="bg-surface-surface-dark rounded-radius-xsmall p-6 mb-6 shadow-xl border">
       <FilterSortBar />
       <FlowTable />
     </div>
@@ -442,7 +442,7 @@ function AlertBadge({ count }) {
 function RightSidebar() {
   return (
     <div className="space-y-6">
-      <div className="bg-surface-surface-dark rounded-lg p-6 shadow-xl border">
+      <div className="bg-surface-surface-dark rounded-radius-xsmall p-6 shadow-xl border">
         <h2 className="text-xl font-bold mb-6">Alerts</h2>
         {/* <div className="flex  space-y-4 ">
           <AlertSummaryCard
@@ -455,19 +455,19 @@ function RightSidebar() {
         </div> */}
 
         <div className="grid grid-cols-3 gap-4 mb-6">
-          <div className="p-4 rounded-lg border-b-4 border-destructive-active border ">
+          <div className="p-4 rounded-radius-xsmall border-b-4 border-destructive-active border ">
             <div className="text-destructive-active font-medium">
               Pre-requisite failure
             </div>
             <div className="text-2xl font-bold text-destructive-active">3</div>
           </div>
-          <div className="p-4 rounded-lg border-b-4 border-destructive-hover border">
+          <div className="p-4 rounded-radius-xsmall border-b-4 border-destructive-hover border">
             <div className="text-destructive-hover font-medium">
               Task failure
             </div>
             <div className="text-2xl font-bold text-destructive-hover">12</div>
           </div>
-          <div className="p-4 rounded-lg border-b-4 border-warning-main border">
+          <div className="p-4 rounded-radius-xsmall border-b-4 border-warning-main border">
             <div className="text-warning-main font-medium">Discrepancy</div>
             <div className="text-2xl font-bold text-warning-main">2</div>
           </div>
@@ -521,7 +521,7 @@ function IncidentHistory() {
   ];
 
   return (
-    <div className="bg-surface-surface-dark rounded-lg p-6 shadow-xl border">
+    <div className="bg-surface-surface-dark rounded-radius-xsmall p-6 shadow-xl border">
       <h2 className="text-xl font-bold mb-4">Incident History</h2>
       <div className="space-y-4">
         {incidents.map((incident, index) => (
