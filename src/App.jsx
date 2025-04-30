@@ -186,13 +186,15 @@ function ScheduleSection() {
 function ScheduleCard({ time, project, title, description }) {
   return (
     <div className="min-w-64 max-w-64 rounded-radius-xsmall p-4 shadow-xl border border-gray-100 bg-surface-surface-dark">
-      <div className="flex items-center mb-2 text-sm text-gray-500">
+      <div className="flex items-center mb-2 text-sm text-brand-primary-dark ">
         <Clock size={16} className="mr-2" />
         <span>{time}</span>
         {project && (
           <>
             <div className="mx-2 h-4 border-r border-gray-300 "></div>
-            <span className="font-medium">{project}</span>
+            <span className="font-semibold text-brand-primary-dark">
+              {project}
+            </span>
           </>
         )}
       </div>
@@ -221,7 +223,7 @@ function BreakCard({ duration }) {
 // 3. Flow Table Components
 function FlowTableSection() {
   return (
-    <div className="bg-surface-surface-dark rounded-radius-xsmall p-6 mb-6 shadow-xl border">
+    <div className="bg-surface-surface-dark rounded-radius-xsmall p-6 mb-6 shadow-xl border pb-10">
       <FilterSortBar />
       <FlowTable />
     </div>
@@ -356,7 +358,7 @@ function FlowTable() {
 
 function FlowTableRow({ name, schedule, project, startTime, status, alerts }) {
   return (
-    <tr className="border-b border-gray-100">
+    <tr className="border-b border-gray-100 ">
       <td className="py-4">
         <div className="flex items-center">
           <div className="w-6 h-6 rounded-full  bg-brand-secondary-light flex items-center justify-center mr-3">
