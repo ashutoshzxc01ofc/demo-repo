@@ -114,7 +114,7 @@ function Header() {
       </div>
       <div className="text-left">
         <h1 className="text-xl font-mulish font-bold-ds">Welcome Akash,</h1>
-        <p className="text-gray-500">
+        <p className="text-gray-500 mt-2">
           Here are the some of the task as per project schedule.
         </p>
       </div>
@@ -160,7 +160,7 @@ function ScheduleSection() {
   ];
 
   return (
-    <div className="mb-6">
+    <div className="mb-2 -mt-6">
       <div className="flex space-x-4 overflow-x-auto pb-4">
         {scheduleData
           .map((item, index) => {
@@ -549,7 +549,7 @@ function IncidentHistory() {
         ))}
 
         <div className="text-center mt-4">
-          <button className="text-interactive-default font-medium border mt-4 mb-4 w-full rounded-radius-circle py-1 border-interactive-default">
+          <button className="text-interactive-default font-medium border mt-2 w-full rounded-radius-circle py-1 border-interactive-default">
             See more
           </button>
         </div>
