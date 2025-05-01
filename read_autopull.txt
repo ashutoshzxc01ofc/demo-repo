@@ -1,0 +1,4 @@
+MAKE auto-pull.sh FILE EXECUTABLE 
+
+chmod +x auto-pull.sh
+./auto-pull.sh
