@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        mulish: ["Mulish"],
+        mulish: ["Mulish", "sans-serif"],
       },
 
       colors: {
