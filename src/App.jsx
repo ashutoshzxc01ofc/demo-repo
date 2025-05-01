@@ -30,7 +30,7 @@ export default function App() {
 function Sidebar() {
   return (
     <div className="w-20 bg-surface-surface-dl flex flex-col items-center py-4">
-      <div className="mb-8">
+      <div className="mb-8 mt-6">
         <div className="flex items-center justify-center">
           <div className="h-8 w-8 bg-gradient-to-r from-orange-500 to-pink-500 rounded-md flex items-center justify-center text-white font-bold">
             ZS
@@ -217,15 +217,15 @@ function ScheduleCard({ time, project, title, description }) {
 
 function BreakCard({ duration }) {
   return (
-    <div className="min-w-40 flex flex-col items-center justify-center">
+    <div className="min-w-40 flex flex-col space-y-4 items-center justify-center">
       <div className="relative">
         <div className="h-10 w-10 bg-blue-50 rounded-full flex items-center justify-center">
-          <span className="text-xl">🚶</span>
+          <span className="text-3xl">🚶</span>
         </div>
       </div>
       <div className="mt-2 text-center">
         <div className="font-bold-ds">Time Break</div>
-        <div className="text-sm text-gray-500">{duration}</div>
+        <div className=" mt-2 font-bold-ds">{duration}</div>
       </div>
     </div>
   );
@@ -247,7 +247,7 @@ function FilterSortBar() {
       <div className="flex items-center space-x-2">
         <h2 className="text-xl font-bold-ds">Flow</h2>
         <div className="flex items-center space-x-2 text-sm ml-6">
-          <span className="text-gray-500">Project:</span>
+          <span className="text-gray-500 ml-4">Project:</span>
           <div className="flex items-center">
             <span>All</span>
             <ChevronDown size={16} className="ml-1" />
