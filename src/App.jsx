@@ -19,7 +19,7 @@ import {
 
 export default function App() {
   return (
-    <div className="flex h-screen bg-surface-surface-main ">
+    <div className="flex font-mulish h-screen bg-surface-surface-main ">
       <Sidebar />
       <MainContent />
     </div>
@@ -29,7 +29,7 @@ export default function App() {
 // 1. Layout Components
 function Sidebar() {
   return (
-    <div className="w-16 bg-surface-surface-dl flex flex-col items-center py-4">
+    <div className="w-20 bg-surface-surface-dl flex flex-col items-center py-4">
       <div className="mb-8">
         <div className="flex items-center justify-center">
           <div className="h-8 w-8 bg-gradient-to-r from-orange-500 to-pink-500 rounded-md flex items-center justify-center text-white font-bold">
@@ -38,13 +38,24 @@ function Sidebar() {
         </div>
       </div>
 
-      <SidebarItem icon={<Home size={20} />} label="Home" active />
+      {/* <SidebarItem icon={<Home size={20} />} label="Home" active />
       <SidebarItem icon={<Database size={20} />} label="Live View" />
       <SidebarItem icon={<BarChart2 size={20} />} label="Reports" />
       <SidebarItem icon={<Settings size={20} />} label="Settings" />
-      <SidebarItem icon={<Bell size={20} />} label="Alerts" />
+      <SidebarItem icon={<Bell size={20} />} label="Alerts" /> */}
 
-      <div className="mt-auto mb-4">
+      {/* Top Items */}
+      <div className="flex flex-col items-center space-y-8">
+        <SidebarItem icon={<Home size={20} />} label="Home" active />
+        <SidebarItem icon={<Database size={20} />} label="Live View" />
+        <SidebarItem icon={<BarChart2 size={20} />} label="Reports" />
+      </div>
+
+      <div className="mt-auto flex flex-col items-center space-y-8 mb-12">
+
+        <SidebarItem icon={<Settings size={20} />} label="Settings" />
+        <SidebarItem icon={<Bell size={20} />} label="Alerts" />
+
         <div className="h-10 w-10 rounded-full bg-brand-primary-main flex items-center justify-center text-white">
           AK
         </div>
@@ -71,10 +82,10 @@ function MainContent() {
       <div className="flex-1 overflow-y-auto p-6 bg-white">
         <ScheduleSection />
         <div className="flex gap-6 ">
-          <div className="flex-1">
+          <div className="flex-1 w-3/4">
             <FlowTableSection />
           </div>
-          <div className="w-96">
+          <div className="w-1/4">
             <RightSidebar />
           </div>
         </div>
@@ -102,7 +113,7 @@ function Header() {
         </div>
       </div>
       <div className="text-left">
-        <h1 className="text-xl font-bold-ds ">Welcome Akash,</h1>
+        <h1 className="text-xl font-mulish font-bold-ds">Welcome Akash,</h1>
         <p className="text-gray-500">
           Here are the some of the task as per project schedule.
         </p>
@@ -185,7 +196,7 @@ function ScheduleSection() {
 
 function ScheduleCard({ time, project, title, description }) {
   return (
-    <div className="min-w-64 max-w-64 rounded-radius-xsmall p-4 shadow-xl border border-gray-100 bg-surface-surface-dark">
+    <div className="w-80 rounded-radius-xsmall p-4 shadow-xl border border-gray-100 bg-surface-surface-dark">
       <div className="flex items-center mb-2 text-sm text-brand-primary-dark ">
         <Clock size={16} className="mr-2" />
         <span>{time}</span>
@@ -457,11 +468,11 @@ function RightSidebar() {
         </div> */}
 
         <div className="grid grid-cols-3 gap-4 mb-6">
-          <div className="p-4 rounded-radius-xsmall border-b-4 border-destructive-active border shadow-xl ">
+          <div className="p-4 rounded-radius-xsmall place-content-around border-b-4 border-destructive-active border shadow-xl ">
             <div className="text-destructive-active font-medium">
               Pre-requisite failure
             </div>
-            <div className="text-2xl font-bold-ds text-destructive-active">
+            <div className="text-2xl font-bold-ds mt-2 text-destructive-active">
               3
             </div>
           </div>
@@ -469,13 +480,13 @@ function RightSidebar() {
             <div className="text-destructive-hover font-medium">
               Task failure
             </div>
-            <div className="text-2xl font-bold-ds text-destructive-hover">
+            <div className="text-2xl font-bold-ds mt-8 text-destructive-hover">
               12
             </div>
           </div>
           <div className="p-4 rounded-radius-xsmall border-b-4 border-warning-main border shadow-xl  ">
-            <div className="text-warning-main font-medium ">Discrep- ancy</div>
-            <div className="text-2xl text-warning-main font-bold-ds">2</div>
+            <div className="text-warning-main font-medium ">Discrepancy</div>
+            <div className="text-2xl text-warning-main mt-8 font-bold-ds">2</div>
           </div>
         </div>
       </div>
@@ -509,14 +520,12 @@ function IncidentHistory() {
     },
     {
       icon: "lock",
-      title:
-        "Authentication error: Invalid or expired credentials for 'S3_Bucket'",
+      title:"   Authentication error: Invalid or expired credentials for 'S3_Bucket'",
       color: "yellow",
     },
     {
       icon: "file",
-      title:
-        "Report generation failed: Query execution exceeded allowed time limit",
+      title: "Report generation failed: Query execution exceeded allowed time limit",
       color: "red",
     },
     {
@@ -540,7 +549,7 @@ function IncidentHistory() {
         ))}
 
         <div className="text-center mt-4">
-          <button className="text-interactive-default font-medium border w-full rounded-radius-circle py-1 border-interactive-default">
+          <button className="text-interactive-default font-medium border mt-4 mb-4 w-full rounded-radius-circle py-1 border-interactive-default">
             See more
           </button>
         </div>
@@ -553,14 +562,15 @@ function IncidentCard({ icon, title, color }) {
   return (
     <div className="flex items-start">
       <div
-        className={`w-8 h-8 rounded-full bg-${color === "yellow" ? "amber" : color}-50 text-${color === "yellow" ? "amber" : color}-500 flex items-center justify-center mr-3 mt-1`}
+        className={`w-8 h-8 font-mulish rounded-full bg-${color === "yellow" ? "amber" : color}-50 text-${color === "yellow" ? "amber" : color}-500 flex items-center justify-start mr-2 mt-1`}
       >
         {icon === "server" && <Database size={16} />}
         {icon === "lock" && <AlertCircle size={16} />}
         {icon === "file" && <AlertCircle size={16} />}
         {icon === "cpu" && <AlertCircle size={16} />}
       </div>
-      <div className="text-sm">{title}</div>
+      { (icon === "lock" || icon === "file" ) ? <div className="text-sm -ml-1 mt-2">{title}</div> : <div className="text-sm mt-2">{title}</div> }
+      {/* <div className="text-sm">{title}</div> */}
     </div>
   );
 }
