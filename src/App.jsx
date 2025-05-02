@@ -85,7 +85,7 @@ function MainContent() {
           <div className="flex-1 w-3/4">
             <FlowTableSection />
           </div>
-          <div className="w-1/4">
+          <div className="w-1/4 border border-red-500">
             <RightSidebar />
           </div>
         </div>
@@ -452,61 +452,173 @@ function AlertBadge({ count }) {
 }
 
 // 4. Right Sidebar Components
-function RightSidebar() {
-  return (
-    <div className="space-y-6">
-      <div className="bg-surface-surface-dark rounded-radius-xsmall p-6 shadow-xl border">
-        <h2 className="text-xl font-bold-ds mb-6">Alerts</h2>
-        {/* <div className="flex  space-y-4 ">
-          <AlertSummaryCard
-            label="Pre-requisite failure"
-            count={3}
-            color="orange"
-          />
-          <AlertSummaryCard label="Task failure" count={12} color="red" />
-          <AlertSummaryCard label="Discrepancy" count={2} color="yellow" />
-        </div> */}
+// function RightSidebar() {
+//   return (
+//     <div className="space-y-6">
+//       <div className="bg-surface-surface-dark rounded-radius-xsmall p-6 shadow-xl border">
+//         <h2 className="text-xl font-bold-ds mb-6">Alerts</h2>
+//         {/* <div className="flex  space-y-4 ">
+//           <AlertSummaryCard
+//             label="Pre-requisite failure"
+//             count={3}
+//             color="orange"
+//           />
+//           <AlertSummaryCard label="Task failure" count={12} color="red" />
+//           <AlertSummaryCard label="Discrepancy" count={2} color="yellow" />
+//         </div> */}
 
-        <div className="grid grid-cols-3 gap-4 mb-6">
-          <div className="p-4 rounded-radius-xsmall place-content-around border-b-4 border-destructive-active border shadow-xl ">
-            <div className="text-destructive-active font-medium">
-              Pre-requisite failure
-            </div>
-            <div className="text-2xl font-bold-ds mt-2 text-destructive-active">
-              3
-            </div>
-          </div>
-          <div className="p-4 rounded-radius-xsmall border-b-4 border-destructive-hover border shadow-xl ">
-            <div className="text-destructive-hover font-medium">
-              Task failure
-            </div>
-            <div className="text-2xl font-bold-ds mt-8 text-destructive-hover">
-              12
-            </div>
-          </div>
-          <div className="p-4 rounded-radius-xsmall border-b-4 border-warning-main border shadow-xl  ">
-            <div className="text-warning-main font-medium ">Discrepancy</div>
-            <div className="text-2xl text-warning-main mt-8 font-bold-ds">2</div>
-          </div>
+//         <div className="grid grid-cols-3 gap-4 mb-6">
+//           <div className="p-4 rounded-radius-xsmall place-content-around border-b-4 border-destructive-active border shadow-xl ">
+//             <div className="text-destructive-active font-medium">
+//               Pre-requisite failure
+//             </div>
+//             <div className="text-2xl font-bold-ds mt-2 text-destructive-active">
+//               3
+//             </div>
+//           </div>
+//           <div className="p-4 rounded-radius-xsmall border-b-4 border-destructive-hover border shadow-xl ">
+//             <div className="text-destructive-hover font-medium">
+//               Task failure
+//             </div>
+//             <div className="text-2xl font-bold-ds mt-8 text-destructive-hover">
+//               12
+//             </div>
+//           </div>
+//           <div className="p-4 rounded-radius-xsmall border-b-4 border-warning-main border shadow-xl  ">
+//             <div className="text-warning-main font-medium ">Discrepancy</div>
+//             <div className="text-2xl text-warning-main mt-8 font-bold-ds">2</div>
+//           </div>
+//         </div>
+//       </div>
+
+//       <IncidentHistory />
+//     </div>
+//   );
+// }
+
+// function AlertSummaryCard({ label, count, color }) {
+//   return (
+//     <div className={`p-4 rounded-lg border-t-4 border-${color}-500 w-20 `}>
+//       <div className="text-sm text-gray-500">{label}</div>
+//       <div className={`text-2xl font-bold text-${color}-500 mt-1`}>{count}</div>
+//       <div className={`w-full h-1 bg-${color}-100 rounded-full mt-2`}>
+//         <div
+//           className={`h-1 bg-${color}-500 rounded-full`}
+//           style={{ width: `${count * 8}%` }}
+//         ></div>
+//       </div>
+//     </div>
+//   );
+// }
+
+const FlagIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-16 h-16">
+    <path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z" />
+  </svg>
+);
+
+const ArrowIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-16 h-16">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 11H8c-.55 0-1-.45-1-1s.45-1 1-1h8c.55 0 1 .45 1 1s-.45 1-1 1z" /> {/* Simple arrow-like shape */}
+         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 13l4-4-4-4v3H8v2h3v3z"/> {/* Arrow right */}
+
+  </svg>
+);
+
+
+const WarningIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-16 h-16">
+    <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+  </svg>
+);
+
+
+function AlertSummaryCard({ label, count, color, IconComponent }) {
+  // Map color prop to Tailwind classes
+  // Using the colors from the original image description/code mapping:
+  // orange -> destructive-active (adjust if needed)
+  // red -> destructive-hover (adjust if needed)
+  // yellow -> warning-main (adjust if needed)
+  const colorStyles = {
+    orange: {
+      text: 'text-destructive-active', // Or choose a more orange color if available/needed
+      bg: 'bg-destructive-active',     // e.g., 'text-orange-600', 'bg-orange-500'
+      icon: 'text-destructive-active/10' // Low opacity icon color
+    },
+    red: {
+      text: 'text-destructive-hover', // Or choose a more red color if available/needed
+      bg: 'bg-destructive-hover',    // e.g., 'text-red-600', 'bg-red-500'
+       icon: 'text-destructive-hover/10' // Low opacity icon color
+    },
+    yellow: {
+      text: 'text-warning-main',    // e.g., 'text-yellow-600', 'bg-yellow-400'
+      bg: 'bg-warning-main',
+       icon: 'text-warning-main/20' // Low opacity icon color - slightly more visible for yellow
+    },
+  };
+
+  const styles = colorStyles[color] || colorStyles.orange; // Default to orange if color invalid
+
+  return (
+    <div className="relative flex-1 bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden p-4 min-w-[140px]">
+      {/* Background Icon */}
+      <div className={`absolute bottom-4 right-2 opacity-50 ${styles.icon} pointer-events-none`}>
+         <IconComponent />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col justify-between h-full">
+        {/* Top Text */}
+        <div className={`text-sm font-medium text-gray-700 leading-tight`}>
+           {/* Split label if needed - simple space split */}
+          {label}
+        </div>
+        {/* Bottom Number */}
+        <div className={`text-3xl font-bold-ds ${styles.text} mt-4`}>
+          {count}
         </div>
       </div>
 
-      <IncidentHistory />
+      {/* Bottom Color Bar */}
+      <div className={`absolute bottom-0 left-0 right-0 h-1.5 ${styles.bg}`}></div>
     </div>
   );
 }
 
-function AlertSummaryCard({ label, count, color }) {
+// --- Updated RightSidebar Component ---
+function RightSidebar() {
   return (
-    <div className={`p-4 rounded-lg border-t-4 border-${color}-500 w-20 `}>
-      <div className="text-sm text-gray-500">{label}</div>
-      <div className={`text-2xl font-bold text-${color}-500 mt-1`}>{count}</div>
-      <div className={`w-full h-1 bg-${color}-100 rounded-full mt-2`}>
-        <div
-          className={`h-1 bg-${color}-500 rounded-full`}
-          style={{ width: `${count * 8}%` }}
-        ></div>
+    <div className="space-y-6">
+      {/* Alerts Section */}
+      {/* Using bg-white assuming surface-dark was just a placeholder */}
+      <div className="bg-white rounded-lg p-6 shadow-lg border border-gray-200">
+        <h2 className="text-xl font-semibold text-gray-800 mb-5">Alerts</h2>
+
+        {/* Container for the Alert Cards */}
+        <div className="flex flex-row space-x-4 mb-4">
+          <AlertSummaryCard
+            label="Pre-requisite failure"
+            count={3}
+            color="orange"
+            IconComponent={FlagIcon} // Pass the component itself
+          />
+          <AlertSummaryCard
+            label="Task failure"
+            count={12}
+            color="red"
+            IconComponent={ArrowIcon} // Pass the component itself
+          />
+          <AlertSummaryCard
+            label="Discrepancy"
+            count={2}
+            color="yellow"
+            IconComponent={WarningIcon} // Pass the component itself
+          />
+        </div>
       </div>
+
+      {/* Incident History Section (assuming it's another component) */}
+      <IncidentHistory />
     </div>
   );
 }
@@ -537,7 +649,7 @@ function IncidentHistory() {
 
   return (
     <div className="bg-surface-surface-dark rounded-radius-xsmall p-6 shadow-xl border">
-      <h2 className="text-xl font-bold-ds mb-4">Incident History</h2>
+      <h2 className="text-xl font-bold-ds mt-2 mb-4">Incident History</h2>
       <div className="space-y-4">
         {incidents.map((incident, index) => (
           <IncidentCard
@@ -549,7 +661,7 @@ function IncidentHistory() {
         ))}
 
         <div className="text-center mt-4">
-          <button className="text-interactive-default font-medium border mt-2 w-full rounded-radius-circle py-1 border-interactive-default">
+          <button className="text-interactive-default font-medium border mt-2 mb-2 w-full rounded-radius-circle py-1 border-interactive-default">
             See more
           </button>
         </div>
