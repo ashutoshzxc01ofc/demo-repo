@@ -85,7 +85,7 @@ function MainContent() {
           <div className="flex-1 w-3/4">
             <FlowTableSection />
           </div>
-          <div className="w-1/4 border border-red-500">
+          <div className="w-1/4">
             <RightSidebar />
           </div>
         </div>
@@ -367,6 +367,42 @@ function FlowTable() {
   );
 }
 
+const CustomTableIcon = () => (
+  <svg
+    width="40" // Fixed width
+    height="40" // Fixed height
+    viewBox="0 0 40 40"
+    fill="none" // Root SVG has no fill
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* Background Circle with fixed color */}
+    <path
+      d="M0 20C0 8.95431 8.95431 0 20 0V0C31.0457 0 40 8.95431 40 20V20C40 31.0457 31.0457 40 20 40V40C8.95431 40 0 31.0457 0 20V20Z"
+      fill="#2D807B" // Fixed fill color
+    />
+    {/* Mask Definition */}
+    <mask
+      id="mask0_5084_12734_simple" // Added _simple to avoid potential ID conflicts if used alongside the other version
+      style={{ maskType: 'alpha' }} // JSX style syntax
+      maskUnits="userSpaceOnUse"
+      x="8"
+      y="8"
+      width="24"
+      height="24"
+    >
+      <rect x="8" y="32" width="24" height="24" transform="rotate(-90 8 32)" fill="#D9D9D9" />
+    </mask>
+    {/* Group using the mask */}
+    <g mask="url(#mask0_5084_12734_simple)"> {/* Reference the unique mask ID */}
+      {/* Inner Shape (Icon Detail) with fixed color */}
+      <path
+        d="M29 17L26 17L26 21L16 21L16 23L19 23L19 30L11 30L11 23L14 23L14 17L11 17L11 10L19 10L19 17L16 17L16 19L24 19L24 17L21 17L21 10L29 10L29 17ZM17 15L17 12L13 12L13 15L17 15ZM27 15L27 12L23 12L23 15L27 15ZM17 28L17 25L13 25L13 28L17 28Z"
+        fill="white" // Fixed fill color
+      />
+    </g>
+  </svg>
+);
+
 function FlowTableRow({ name, schedule, project, startTime, status, alerts }) {
   return (
     <tr className="border-b border-gray-100 ">
@@ -392,9 +428,10 @@ function FlowTableRow({ name, schedule, project, startTime, status, alerts }) {
       </td>
       <td className="py-4">{alerts > 0 && <AlertBadge count={alerts} />}</td>
       <td className="py-4">
-        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-teal-50 text-brand-primary-main font-bold">
+        <CustomTableIcon></CustomTableIcon>
+        {/* <div className="flex items-center justify-center w-8 h-8 rounded-full bg-teal-50 text-brand-primary-main font-bold">
           <ChevronDown size={16} />
-        </div>
+        </div> */}
       </td>
     </tr>
   );
@@ -562,7 +599,7 @@ function AlertSummaryCard({ label, count, color, IconComponent }) {
   return (
     <div className="relative flex-1 bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden p-4 min-w-[140px]">
       {/* Background Icon */}
-      <div className={`absolute bottom-4 right-2 opacity-50 ${styles.icon} pointer-events-none`}>
+      <div className={`absolute bottom-0 -right-1 opacity-50 ${styles.icon} pointer-events-none`}>
          <IconComponent />
       </div>
 
@@ -648,8 +685,8 @@ function IncidentHistory() {
   ];
 
   return (
-    <div className="bg-surface-surface-dark rounded-radius-xsmall p-6 shadow-xl border">
-      <h2 className="text-xl font-bold-ds mt-2 mb-4">Incident History</h2>
+    <div className="bg-surface-surface-dark font-mulish rounded-radius-xsmall p-6 shadow-xl border">
+      <h2 className="text-xl font-mulish font-bold-ds mt-2 mb-4">Incident History</h2>
       <div className="space-y-4">
         {incidents.map((incident, index) => (
           <IncidentCard
