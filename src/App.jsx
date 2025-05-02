@@ -26,16 +26,52 @@ export default function App() {
   );
 }
 
+const MyCustomIcon = ({ className, ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 48 38" // Keep viewBox for scaling
+    fill="none"       // Keep fill="none" as paths have specific fills
+    className={className} // Use className for sizing/styling
+    {...props}          // Pass other props like aria-hidden, etc.
+  >
+    <g clipPath="url(#clip0_5084_12800)"> {/* Use camelCase for clipPath */}
+      <path d="M21.9004 25.0713V9.21973L18.5972 12.4944V28.346L21.9004 25.0713Z" fill="#C1C5C8"/>
+      <path d="M25.916 25.0706V23.4676L33.91 10.7336H26.23V9.21899H35.84V10.6443L27.7796 23.5572H35.84V25.071L25.916 25.0706Z" fill="#898A8D"/>
+      <path d="M47.9468 21.7085C47.6064 23.9294 45.5204 25.325 42.5984 25.325C40.1932 25.325 38.6192 24.7234 37.1132 23.2298L38.2824 22.0706C39.6084 23.3857 40.8448 23.8096 42.6424 23.8096C44.492 23.8096 45.7876 23.0767 46.1692 21.8104C46.2191 21.6417 46.249 21.4677 46.2584 21.2921C46.2883 20.869 46.2246 20.4445 46.0716 20.0484C45.9552 19.7264 45.5892 19.2972 45.3068 19.1065C44.684 18.6544 43.7932 18.2736 42.878 17.9651L41.0912 17.3583C39.8872 16.9435 38.9872 16.3748 38.4028 15.6653C37.7144 14.8301 37.4808 13.6129 37.6828 12.3859C37.6828 12.3776 37.6972 12.3018 37.6972 12.3018C38.1976 10.1999 39.9396 8.96533 42.6772 8.96533C44.7228 8.96533 45.8572 9.57528 47.2284 10.8011L46.1268 11.8933C45.138 11.0018 44.296 10.4363 42.6096 10.4363C40.6168 10.4363 39.5156 11.4837 39.2976 12.8848C39.214 13.6609 39.4252 14.2396 39.8304 14.7317C40.2428 15.2342 40.9652 15.6383 41.7608 15.9136L43.4408 16.4791C44.6604 16.884 46.0008 17.5213 46.7476 18.1844C46.7476 18.1844 48.304 19.3809 47.9476 21.7069" fill="#898A8D"/>
+      <path d="M3.3032 25.0713V9.21973L0 12.4944V28.346L3.3032 25.0713Z" fill="#97A3AE"/>
+      <path d="M4.64917 32.9553L7.95237 29.6807V20.4612L4.64917 23.7362V32.9553Z" fill="#EC7700"/>
+      <path d="M7.95237 4.60962L4.64917 7.88464V17.1037L7.95237 13.8291V4.60962Z" fill="#97A3AE"/>
+      <path d="M4.64917 17.1037V23.7363L7.95237 20.4612V13.8291L4.64917 17.1037Z" fill="#96460A"/>
+      <path d="M9.29883 28.3457V37.5652L12.6016 34.2901V25.071L9.29883 28.3457Z" fill="#C1C5C8"/>
+      <path d="M9.29883 19.1266V21.7135L12.6016 18.4385V15.8516L9.29883 19.1266Z" fill="#EC7700"/>
+      <path d="M12.6016 0L9.29883 3.27502V12.4941L12.6016 9.21948V0Z" fill="#97A3AE"/>
+      <path d="M9.29883 28.3456L12.6016 25.071V18.4385L9.29883 21.7135V28.3456Z" fill="#C1531B"/>
+      <path d="M12.6016 15.8519V9.21973L9.29883 12.4944V19.1269L12.6016 15.8519Z" fill="#96460A"/>
+      <path d="M17.2508 20.4612L13.948 23.7362V32.9557L17.2508 29.6807V20.4612Z" fill="#C1C5C8"/>
+      <path d="M17.2508 13.8291V4.60962L13.948 7.88464V17.1037L17.2508 13.8291Z" fill="#EC7700"/>
+      <path d="M17.2508 13.8291L13.948 17.1037V23.7363L17.2508 20.4612V13.8291Z" fill="#C1531B"/>
+    </g>
+    <defs> {/* Include the definitions */}
+      <clipPath id="clip0_5084_12800"> {/* Ensure the ID matches the clipPath URL */}
+        <rect width="48" height="37.5652" fill="white"/>
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+
+
 // 1. Layout Components
 function Sidebar() {
   return (
     <div className="w-20 bg-surface-surface-dl flex flex-col items-center py-4">
       <div className="mb-8 mt-6">
-        <div className="flex items-center justify-center">
+      <MyCustomIcon className="w-10 h-10" />
+       {/* <div className="flex items-center justify-center">
           <div className="h-8 w-8 bg-gradient-to-r from-orange-500 to-pink-500 rounded-md flex items-center justify-center text-white font-bold">
             ZS
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* <SidebarItem icon={<Home size={20} />} label="Home" active />
