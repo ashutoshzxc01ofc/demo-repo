@@ -561,16 +561,20 @@ function IncidentHistory() {
 function IncidentCard({ icon, title, color }) {
   return (
     <div className="flex items-start">
+    <div className="w-12">
       <div
-        className={`w-8 h-8 font-mulish rounded-full bg-${color === "yellow" ? "amber" : color}-50 text-${color === "yellow" ? "amber" : color}-500 flex items-center justify-start mr-2 mt-1`}
+        className={`w-8 h-8 rounded-full bg-${color === "yellow" ? "amber" : color}-50 text-${color === "yellow" ? "amber" : color}-500 flex items-center justify-center mr-3 mt-1`}
       >
         {icon === "server" && <Database size={16} />}
         {icon === "lock" && <AlertCircle size={16} />}
         {icon === "file" && <AlertCircle size={16} />}
         {icon === "cpu" && <AlertCircle size={16} />}
       </div>
-      { (icon === "lock" || icon === "file" ) ? <div className="text-sm -ml-1 mt-2">{title}</div> : <div className="text-sm mt-2">{title}</div> }
-      {/* <div className="text-sm">{title}</div> */}
     </div>
+    <div className="w-full">
+      <div className="text-sm mt-2">{title}</div>
+    </div>
+  </div>
+
   );
 }
